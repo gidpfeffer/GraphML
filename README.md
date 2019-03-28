@@ -1,5 +1,5 @@
 # GraphML
-Graph utility written in SMLNJ
+Graph utility written in Standard ML
 
 ## Use Case
 
