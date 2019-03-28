@@ -1,10 +1,22 @@
 Group is
 
+(* Core Graph library *)
 graph.sig
 graph.fun
 graphalg.sig
 graphalg.fun
+
+(* Examples *)
 example/graphbuilder.sml
+
+(* Test Suite *)
+testcases/testsuite.sig
+testcases/tests.sml
+testcases/testgraphs/graph_defs.sml
+testcases/testgraphs/graph_generator.sml
+testcases/testgraphs/undirected_connected.sml
+testcases/cases/edge_test.sml
+
 util/sources.cm
 $/smlnj-lib.cm
 $/basis.cm
