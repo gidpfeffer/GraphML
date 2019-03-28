@@ -1,9 +1,9 @@
 Group is
 
 graph.sig
-graph.sml
+graph.fun
 graphalg.sig
-graphalg.sml
+graphalg.fun
 example/graphbuilder.sml
 util/sources.cm
 $/smlnj-lib.cm
