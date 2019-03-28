@@ -1,0 +1,28 @@
+############################################################
+############################################################
+
+The first line contains:
+
+num_nodes num_edges
+
+############################################################
+
+Then there are num_nodes lines, each of the following format:
+
+node_key node_val
+
+node_key should be unique, it is used to identify every node.
+node_val is a contiguous string that can be parsed however by the user.
+
+############################################################
+
+Then there are num_edges lines, each of the folloring format:
+
+edge_key start_node_key end_node_key u|d edge_val
+
+Like before, edge key is used to uniquely identify every edge. 
+u indicated undirected, d indicates directed. 
+Also like before edge_val is a contiguous string from which the value of the edge will be parsable.
+
+############################################################
+############################################################
