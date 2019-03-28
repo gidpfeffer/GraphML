@@ -33,7 +33,7 @@ fun printGraphStats graph =
     map (fn n => printStats (graph, n)) nodes
   end
 
-val _ = case GraphBuilder.build "basicgraph.txt" of
+val _ = case GraphBuilder.build "example/basicgraph.txt" of
 	NONE => print("INVALID GRAPH FILE\n")
   | SOME(graph) => 
   	let 
