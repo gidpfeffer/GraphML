@@ -38,6 +38,7 @@ sig
 	val findNode : ('a,'b) graph * Edge.Node.Key.ord_key -> ('a Edge.Node.node) option
 	val pred: ('a,'b) graph * 'a Edge.Node.node -> ('a Edge.Node.node * ('a,'b) Edge.edge) list
 	val succ: ('a,'b) graph * 'a Edge.Node.node -> ('a Edge.Node.node * ('a,'b) Edge.edge) list
+	val adj: ('a,'b) graph * 'a Edge.Node.node -> 'a Edge.Node.node list
 	(* Changes the values of the nodes and edges *)
 	val transformGraph: (('a Edge.Node.node -> 'c Edge.Node.node) * (('a,'b) Edge.edge -> ('c,'d) Edge.edge)) -> ('a,'b) graph -> ('c,'d) graph
 end

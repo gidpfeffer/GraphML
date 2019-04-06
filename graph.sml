@@ -96,23 +96,28 @@ struct
 		  SOME((node, outgoing, incoming)) => 
 		  	foldl foldAddStartCheck (foldl foldAddFinish [] (EMap.listItems outgoing)) (EMap.listItems incoming)
 		| NONE => raise NodeNotFound "Node to generate successors from not present in graph"
-	
+
 	and pred ((GRAPH(m)), node) = case NMap.find (m, Node.genKey node) of
 	  SOME((node, outgoing, incoming)) => 
 	  	foldl foldAddFinishCheck (foldl foldAddStart [] (EMap.listItems incoming)) (EMap.listItems outgoing)
 	| NONE => raise NodeNotFound "Node to generate successors from not present in graph"
-	
 	and foldAddFinish (edge, l) = (Edge.genFinish edge, edge)::l
-	
 	and foldAddFinishCheck(edge, l) = case (E.genIsDirected edge orelse selfEdge edge) of
 		true => l
 	  | false => foldAddFinish(edge, l)
-
 	and foldAddStart (edge, l) = (Edge.genStart edge, edge)::l
-	
 	and foldAddStartCheck(edge, l) = case (E.genIsDirected edge orelse selfEdge edge) of
 		true => l
 	  | false => foldAddStart(edge, l)
+
+	fun adj ((GRAPH(m)), node) = 
+		let
+			val predNodes = map (fn (node, _) => node) (pred((GRAPH(m)), node))
+			val succNodes = map (fn (node, _) => node) (succ((GRAPH(m)), node))
+			val nodeMap = foldl (fn (node, map) => NMap.insert(map, E.Node.genKey node, node)) NMap.empty (predNodes @ succNodes)
+		in
+			map (fn (k,v) => v) (NMap.listItemsi nodeMap)
+		end
 
 	fun nodeExists ((GRAPH(m)), node) = case NMap.find (m, Node.genKey node) of
 		SOME(_) =>  true

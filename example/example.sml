@@ -19,16 +19,19 @@ fun printEdge edge = (
 
 fun printStats (graph, node) = (
   printBanner ();
-	print("Successors of node: ");
+	print("Adjacent to node: ");
 	print(StringNode.genKey node);
-	print("\n\n");
+  print("\n");
+  print(String.concatWith ", " (map (fn node => StringNode.genKey node) (StringGraph.adj (graph, node))));
+  print("\n");
+(*	print("\n\n");
   print(String.concatWith ", " (map (fn (node, edge) => StringNode.genKey node) (StringGraph.succ (graph, node))));
 	print("\n");
   print("Predeccessors of node: ");
   print(StringNode.genKey node);
   print("\n\n");
   print(String.concatWith ", " (map (fn (node, edge) => StringNode.genKey node) (StringGraph.pred (graph, node))));
-  print("\n");
+  print("\n");*)
   printBanner ()
 )
 
