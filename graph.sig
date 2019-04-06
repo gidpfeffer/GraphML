@@ -36,9 +36,8 @@ sig
 	val nodeExists : ('a,'b) graph * 'a Edge.Node.node -> bool
 	val edgeExists : ('a,'b) graph * ('a,'b) Edge.edge -> bool
 	val findNode : ('a,'b) graph * Edge.Node.Key.ord_key -> ('a Edge.Node.node) option
-	(* Give it a node in the graph, and it gives all outbound edges 
-	   Directed edges that finish at that node will not be given, only ones that start there *)
-	val genOutboundEdges: ('a,'b) graph * 'a Edge.Node.node -> ('a,'b) Edge.edge list
+	val pred: ('a,'b) graph * 'a Edge.Node.node -> ('a Edge.Node.node * ('a,'b) Edge.edge) list
+	val succ: ('a,'b) graph * 'a Edge.Node.node -> ('a Edge.Node.node * ('a,'b) Edge.edge) list
 	(* Changes the values of the nodes and edges *)
 	val transformGraph: (('a Edge.Node.node -> 'c Edge.Node.node) * (('a,'b) Edge.edge -> ('c,'d) Edge.edge)) -> ('a,'b) graph -> ('c,'d) graph
 end

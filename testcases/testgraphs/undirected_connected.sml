@@ -1,9 +1,12 @@
+
+(* Example graph generator *)
+(* These graphs are intended to be used by testcases to avoid duplicated code *)
 structure UndirectedConnected : GRAPHGEN = 
 struct
 	type nodetype = int
 	type edge_type = int
 	structure TestGraph = StringTestGraph.TestGraph
-  
+
   val node1 = TestGraph.Edge.Node.gen(10, "node1")
   val node2 = TestGraph.Edge.Node.gen(3, "node2")
   val node3 = TestGraph.Edge.Node.gen(~6, "node6")

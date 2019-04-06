@@ -2,7 +2,7 @@ Group is
 
 (* Core Graph library *)
 graph.sig
-graph.fun
+graph.sml
 graphalg.sig
 graphalg.fun
 
@@ -12,6 +12,7 @@ example/graphbuilder.sml
 (* Test Suite *)
 testcases/testsuite.sig
 testcases/tests.sml
+testcases/assert.sml
 testcases/testgraphs/graph_defs.sml
 testcases/testgraphs/graph_generator.sml
 testcases/testgraphs/undirected_connected.sml

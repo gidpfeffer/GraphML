@@ -22,8 +22,14 @@ fun printStats (graph, node) = (
 	print("Successors of node: ");
 	print(StringNode.genKey node);
 	print("\n\n");
-	map printEdge (StringGraph.genOutboundEdges (graph, node));
-	printBanner ()
+  print(String.concatWith ", " (map (fn (node, edge) => StringNode.genKey node) (StringGraph.succ (graph, node))));
+	print("\n");
+  print("Predeccessors of node: ");
+  print(StringNode.genKey node);
+  print("\n\n");
+  print(String.concatWith ", " (map (fn (node, edge) => StringNode.genKey node) (StringGraph.pred (graph, node))));
+  print("\n");
+  printBanner ()
 )
 
 fun printGraphStats graph = 
@@ -37,6 +43,7 @@ val _ = case GraphBuilder.build "example/basicgraph.txt" of
 	NONE => print("INVALID GRAPH FILE\n")
   | SOME(graph) => 
   	let 
+      val _ = printGraphStats graph
   		val startNode = valOf (StringGraph.findNode (graph,"node_key_1"))
   		val finishNode = valOf (StringGraph.findNode (graph,"node_key_4"))
   		val edgefn = (fn edge => Real.fromInt (StringEdge.genVal edge))
